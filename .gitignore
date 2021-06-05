@@ -1,0 +1,15 @@
+#IDE's
+.idea
+nbproject/*
+.vscode
+.settings
+.buildpath
+.project
+
+#composer
+/vendor/*
+
+#others
+/html/
+.phpunit.result.cache
+phpunit.xml.bak
