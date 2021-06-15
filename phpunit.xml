@@ -17,6 +17,7 @@
     <filter>
         <whitelist addUncoveredFilesFromWhitelist="true">
             <directory>./src/Helpers/</directory>
+            <directory>./src/Services/</directory>
         </whitelist>
     </filter>
 </phpunit>
