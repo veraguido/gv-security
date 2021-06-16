@@ -22,7 +22,8 @@
         "gvera/locale": "^1.1",
         "gvera/exceptions": "^1.0",
         "gvera/commands": "^1.0",
-        "gvera/events": "^1.1"
+        "gvera/events": "^1.1",
+        "gvera/email": "^1.1"
     },
     "require-dev": {
         "phpunit/phpunit":          "^8.5",

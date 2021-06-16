@@ -86,7 +86,7 @@ class ForgotPasswordService
     /**
      * @param $key
      * @param $newPassword
-     * @throws OptimisticLockException
+     * @throws OptimisticLockException|ORMException
      */
     public function regeneratePassword($key, $newPassword)
     {
