@@ -51,7 +51,7 @@ class ForgotPasswordServiceTest extends TestCase
         $entityManager = $this->getMockedEntityManager($repo, ['flush', 'merge']);
 
         $forgotPassService = new ForgotPasswordService($entityManager);
-        $forgotPassService->generateNewForgotPassword($user);
+        $this->assertNotNull($forgotPassService->generateNewForgotPassword($user));
     }
 
     /**
@@ -80,6 +80,7 @@ class ForgotPasswordServiceTest extends TestCase
 
     /**
      * @test
+     * @throws \Doctrine\ORM\OptimisticLockException
      */
     public function regeneratePassword()
     {
