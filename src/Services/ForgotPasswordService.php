@@ -40,10 +40,11 @@ class ForgotPasswordService
 
     /**
      * @param User $user
+     * @return string
      * @throws OptimisticLockException
      * @throws ORMException
      */
-    public function generateNewForgotPassword(User $user)
+    public function generateNewForgotPassword(User $user): string
     {
         $dateTime = new \DateTime();
         $newKey = md5($dateTime->format('Y-m-d H:i:s') . $user->getId());
@@ -56,6 +57,8 @@ class ForgotPasswordService
             ForgotPasswordCreatedEvent::FORGOT_PASSWORD_EVENT,
             new ForgotPasswordCreatedEvent($user->getEmail())
         );
+
+        return $newKey;
     }
 
     /**
