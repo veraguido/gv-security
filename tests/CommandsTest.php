@@ -22,18 +22,17 @@ class CommandsTest extends TestCase
      */
     public function testLoginCommand()
     {
-
         $role = new UserRole();
         $role->setName('asd');
         $role->setRolePriority(3);
 
-        $user = new User();
-        $user->setId(2);
-        $user->setRole($role);
-        $user->setEmail("asd@aasd.com");
-        $user->setEnabled(true);
-        $user->setUsername("admin");
-        $user->setPassword(password_hash("admin", PASSWORD_BCRYPT));
+        $user = $this->createMock(User::class);
+        $user->expects($this->any())->method('getId')->willReturn(2);
+        $user->expects($this->any())->method('getRole')->willReturn($role);
+        $user->expects($this->any())->method('getEmail')->willReturn("asd@aasd.com");
+        $user->expects($this->any())->method('getEnabled')->willReturn(true);
+        $user->expects($this->any())->method('getUsername')->willReturn('admin');
+        $user->expects($this->any())->method('getPassword')->willReturn(password_hash("admin", PASSWORD_BCRYPT));
 
         $repo = $this->createMock(EntityRepository::class);
         $repo->expects($this->any())

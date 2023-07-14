@@ -16,7 +16,7 @@
     },
     "require": {
 	"gvera/core-entities": "^1.0",
-	"firebase/php-jwt": "^5.3",
+	"firebase/php-jwt": "^6.8",
         "gvera/session": "^1.0",
         "gvera/http": "^1.2",
         "gvera/locale": "^1.1",

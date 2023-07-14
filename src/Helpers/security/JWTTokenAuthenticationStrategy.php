@@ -6,6 +6,7 @@ use DateTime;
 use Doctrine\ORM\EntityManager;
 use Exception;
 use Firebase\JWT\JWT;
+use Firebase\JWT\Key;
 use Gvera\Exceptions\NotAllowedException;
 use Gvera\Exceptions\TokenExpiredException;
 use Gvera\Helpers\entities\GvEntityManager;
@@ -34,7 +35,8 @@ class JWTTokenAuthenticationStrategy implements AuthenticationStrategyInterface
      */
     public function isLoggedIn(): bool
     {
-        $decoded = JWT::decode($this->tokenValue, self::SECRET_KEY, ['HS256']);
+        $algo = new Key(self::SECRET_KEY, 'HS256');
+        $decoded = JWT::decode($this->tokenValue, $algo);
         if (!isset($decoded->username)) {
             throw new NotAllowedException('User is not allowed');
         }

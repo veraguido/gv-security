@@ -22,6 +22,6 @@ class JWTService
             'username' => $username,                     // User name
         ];
 
-        return JWT::encode($data, JWTTokenAuthenticationStrategy::SECRET_KEY);
+        return JWT::encode($data, JWTTokenAuthenticationStrategy::SECRET_KEY, 'HS256');
     }
 }
