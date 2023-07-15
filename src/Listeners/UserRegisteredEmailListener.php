@@ -2,6 +2,7 @@
 namespace Gvera\Listeners;
 
 use Gvera\Events\Event;
+use Gvera\Helpers\config\Config;
 use Gvera\Helpers\email\GvEmail;
 
 /**
@@ -19,6 +20,7 @@ class UserRegisteredEmailListener implements EventListenerInterface
 {
     private const DEFAULT_SUBJECT = 'gv account created';
     private $email;
+    public Config $config;
 
     public function __construct(GvEmail $email)
     {
